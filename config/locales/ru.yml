@@ -1,0 +1,30 @@
+ru:
+  test_job_title: 'Тестовое задание'
+
+  navigation: 'Навигация'
+
+  actions: 'Действия'
+  action:
+    control_user: 'Панель управления акаунтом'
+    check_in: 'Регистрация'
+    authorization: 'Вход'
+    create: 'Создать'
+    edit: 'Редактировать'
+    exit: 'Выход'
+    enter_new_password: 'Введите новый пароль'
+
+
+
+  notice:
+    incorrect_password: 'Неправильная комбинация логина или пароля'
+    session_completed: 'Сессия завршена'
+    are_you_sure: 'Вы уверены?'
+
+  success:
+    created_user: 'Пользователь успешно создан'
+    updated_user: 'Пользователь успешно обновлен'
+
+  please_log_in: 'Пожалуйста авторизуйтесь'
+
+  account: 'Аккаут'
+

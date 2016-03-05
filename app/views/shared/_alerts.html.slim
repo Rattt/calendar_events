@@ -1,0 +1,7 @@
+- if flash.present?
+  - flash.each do |key, text|
+    - key = key.gsub("notice", "danger").gsub("error", "danger").gsub("alert", "warning")
+    div class="alert alert-#{key} alert-dismissible fade in" role="alert"
+      button class="close" aria-label="Close" data-dismiss="alert" type="button"
+        span aria-hidden="true" ×
+      = raw text.html_safe

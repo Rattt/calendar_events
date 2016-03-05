@@ -1,0 +1,20 @@
+
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: calendar_events_development
+
+test:
+  <<: *default
+  database: calendar_events_test
+
+production:
+  <<: *default
+  database: calendar_events_production
+  username: calendar_events
+  password: <%= ENV['CALENDAR_EVENTS_DATABASE_PASSWORD'] %>

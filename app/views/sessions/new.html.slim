@@ -1,0 +1,8 @@
+h1.text-center
+  = t('please_log_in')
+= bootstrap_form_for @user, url: sessions_path(locale: I18n.locale,id: @user.id), method: :post do |f|
+    div.row
+      .col-xs-offset-4.col-xs-4
+        = f.text_field :email
+        = f.password_field :password
+        = f.submit "#{t("action.authorization")}" , class: "btn btn-primary"

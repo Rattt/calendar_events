@@ -1,0 +1,39 @@
+/*!
+ * Start Bootstrap - Portfolio Item HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+
+
+
+@import "base/globals";
+
+@import "template/header_panel/select_language";
+@import "template/header_panel/user_enter_panel";
+@import "template/alert";
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "flag_icon_css";
+
+
+
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+li.divider {
+    border-bottom: 1px solid #ccc;
+}
+
+

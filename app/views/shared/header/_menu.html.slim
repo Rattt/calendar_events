@@ -1,0 +1,31 @@
+nav.navbar.navbar-inverse.navbar-fixed-top role="navigation"
+  .container
+    .navbar-header
+      button.navbar-toggle data-target="#example-navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only = t('navigation')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+      = link_to t('test_job_title'), root_path, class: 'navbar-brand'
+
+    #example-navbar-collapse.collapse.navbar-collapse
+      ul.nav.navbar-nav
+
+        li =link_to  t('account'), edit_user_path(current_user) if current_user.present?
+
+        li.divider.visible-xs role="separator"
+        li.visible-xs = link_to t('action.authorization'), new_session_path
+        li.visible-xs = link_to t('action.check_in'), new_user_path
+
+        li.divider.visible-xs role="separator"
+        li.visible-xs = link_to "Русский", params.merge(locale: :ru)
+        li.visible-xs = link_to "English", params.merge(locale: :en)
+
+      ul.nav.navbar-right.hidden-xs
+        li
+          ul.nav.navbar-nav
+            = render "shared/header/select_language"
+            = render "shared/header/user_enter_panel"
+
+
