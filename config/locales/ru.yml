@@ -14,6 +14,9 @@ ru:
     create_event: 'Создать событие'
     check_in: 'Регистрация'
 
+  error:
+    uniqueness: 'Запись не уникальна'
+
   notice:
     incorrect_password: 'Неправильная комбинация логина или пароля'
     session_completed: 'Сессия завршена'
@@ -44,8 +47,6 @@ ru:
       week_repeat: 'Каждую неделю'
       month_repeat: 'Каждый месяц'
       year_repeat: 'Каждый год'
-
-
 
   date:
       formats:

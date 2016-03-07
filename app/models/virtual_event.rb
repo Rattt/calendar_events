@@ -7,8 +7,10 @@ class VirtualEvent
   attribute :type_event, String
   attribute :date_start, Date
 
+  before_validation :downcase_event!
+
   validates :user_id, presence: true, numericality: true
-  validates :name, presence: true, uniqueness: { model: Event }
+  validates_with  EventNameUniqueness
   validates :date_start, presence: true,  date: { after: Proc.new { Date.today } }
 
   def update(event)
@@ -30,6 +32,12 @@ class VirtualEvent
     else
       false
     end
+  end
+
+  private
+
+  def downcase_event!
+    self.name.downcase! if name.present?
   end
 
 end

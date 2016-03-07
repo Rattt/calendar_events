@@ -1,1 +1,17 @@
-!!!
+
+h1.text-center = @event.name
+div.text-center
+  div.center-show-content
+    dl.dl-horizontal
+      dt = "#{t('activerecord.attributes.event.type_event')}:"
+      dd.text-left = t("event.type_event."+ @event.type_event)
+      dt = "#{t('activerecord.attributes.date_event.date_start')}:"
+      dd.text-left = l(@date_start)
+
+
+
+
+
+
+
+

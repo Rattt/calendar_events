@@ -5,8 +5,6 @@ class Event < ActiveRecord::Base
 
   enum type_event: { not_repeat: 0, one_repeat: 1, week_repeat: 2, month_repeat: 3, year_repeat: 4 }
 
-  before_validation :downcase_event!
-
   def event_coming_soon_date
     date = self.date_events.get_date_start_first_event_occurs
     if date.present?
@@ -17,9 +15,4 @@ class Event < ActiveRecord::Base
     end
   end
 
-  private
-
-  def downcase_event!
-    self.name.downcase! if name.present?
-  end
 end

@@ -12,10 +12,11 @@ html
 
   body
     = render "shared/header/menu"
-    .container
+
+    .container id="#{controller.controller_name}" class= "action_name_#{controller.action_name}"
 
       = render 'shared/alerts'
 
       = yield
 
-      = render "shared/footer"
+    = render "shared/footer"

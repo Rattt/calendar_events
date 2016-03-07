@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :only => [:new, :create, :index, :show, :destroy, :calendar, :edit, :update] do
     private_access!
   end
-  before_action :set_event, only: [:edit, :show, :update, :destroy]
+  before_action :set_event, only: [:edit, :update, :show, :destroy]
   before_action :only => [:edit, :update, :destroy] do
     is_my_event?(@event)
   end
@@ -24,7 +24,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @virtual_event = VirtualEvent.new(virtual_event_params)
+    @virtual_event = VirtualEvent.new(virtual_event_params.merge({'id' => params['id']}))
     if @virtual_event.update(@event)
       flash[:success] = I18n.t('success.updated_event')
       redirect_to events_path
@@ -38,10 +38,12 @@ class EventsController < ApplicationController
                                       type_event: @event.type_event, date_start: @event.date_events.get_date_start_first_event_occurs)
   end
 
-  def show ; end
+  def show
+    @date_start = @event.date_events.get_date_start_first_event_occurs
+  end
 
   def index
-    @events = Event.all
+    @events = current_user.events
   end
 
   def calendar
@@ -57,7 +59,7 @@ class EventsController < ApplicationController
   private
 
   def virtual_event_params
-    params.require(:virtual_event).permit( :user_id, :name, :type_event, :date_start  )
+    params.require(:virtual_event).permit(:user_id, :name, :type_event, :date_start)
   end
 
   def set_event

@@ -52,7 +52,6 @@ class DateEvent < ActiveRecord::Base
     date_event = event.date_events.build(date_start: date_start)
     new_rows_hash = DateEvent.get_collection_event_date(date_event)
 
-    #Fast
     DateEvent.single_mass_insert_sql!(new_rows_hash) if new_rows_hash.present?
 
   end

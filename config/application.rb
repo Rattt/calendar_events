@@ -15,6 +15,8 @@ module CalendarEvents
     config.i18n.available_locales = [:ru, :en]
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
+    config.autoload_paths += %W("#{config.root}/app/validators/")
+
     config.generators do |g|
       g.helper false
       g.javascripts false
