@@ -33,6 +33,9 @@ gem "simple_calendar", "~> 2.0"
 
 gem 'puma'
 
+# For Heroku
+gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   gem 'byebug'

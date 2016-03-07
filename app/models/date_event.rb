@@ -4,6 +4,7 @@ class DateEvent < ActiveRecord::Base
 
   scope :get_date_start_first_event_occurs, -> { where("DATE(date_start) > ?", Date.today).order(date_start: :asc).limit(1).pluck(:date_start).first }
   scope :get_ids_future_events, -> { where("DATE(date_start) > ?", Date.today).pluck(:id) }
+  scope :get_ids_date_event_old, -> { where("DATE(date_start) < ?", Date.today - 3.month).pluck(:id) }
 
   validates :event_id, presence: true, numericality: true
   validates :date_start, presence: true, date: true
@@ -45,11 +46,6 @@ class DateEvent < ActiveRecord::Base
 
   def start_time
     self.date_start
-  end
-
-  def date_range
-    beginning =  Date.today.year + 1
-    ending    = self.date_start + 1.day
   end
 
   private
