@@ -1,9 +1,5 @@
 class VirtualEvent
-  include Virtus
-
-  extend ActiveModel::Naming
-  include ActiveModel::Conversion
-  include ActiveModel::Validations
+  include Soulless.model
 
   attribute :id, Integer
   attribute :user_id, Integer
@@ -11,11 +7,15 @@ class VirtualEvent
   attribute :type_event, String
   attribute :date_start, Date
 
+  validates :user_id, presence: true, numericality: true
+  validates :name, presence: true, uniqueness: { model: Event }
+  validates :date_start, presence: true,  date: { after: Proc.new { Date.today } }
+
   def update(event)
     if valid?
       event.update(name: name, type_event: type_event)
       DateEvent.delete_all(["id in (?)", event.date_events.get_ids_future_events])
-      generate_dates_event(event)
+      DateEvent.generate_dates_event(event, date_start)
       true
     else
       false
@@ -25,18 +25,11 @@ class VirtualEvent
   def save
     if valid?
       event = Event.create!(user_id: user_id, name: name, type_event: type_event)
-      generate_dates_event(event)
+      DateEvent.generate_dates_event(event, date_start)
       true
     else
       false
     end
   end
-
-  private
-
- def generate_dates_event(event)
-   date_event = event.date_events.build(date_start: date_start)
-   DateEvent.create(DateEvent.get_collection_event_date(date_event))
- end
 
 end

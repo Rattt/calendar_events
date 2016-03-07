@@ -7,9 +7,6 @@ class Event < ActiveRecord::Base
 
   before_validation :downcase_event!
 
-  validates :user_id, presence: true, numericality: true
-  validates :name, presence: true, uniqueness: true
-
   def event_coming_soon_date
     date = self.date_events.get_date_start_first_event_occurs
     if date.present?

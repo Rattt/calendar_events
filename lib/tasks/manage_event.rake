@@ -7,7 +7,9 @@ namespace :manage_event do
 
   desc "Generate new date point"
   task :generate_new_date_point => :environment do
-
+    Event.find_each do |event|
+      DateEvent.generate_dates_event(event, event.date_events.get_date_last_point + 1.day)
+    end
   end
 
 end

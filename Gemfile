@@ -20,7 +20,8 @@ gem 'bcrypt'
 # Validate date
 gem 'date_validator'
 
-gem 'virtus'
+gem 'soulless'
+
 
 # Template
 gem 'slim-rails', '3.0.1'
