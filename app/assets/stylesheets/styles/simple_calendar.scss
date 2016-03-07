@@ -1,0 +1,16 @@
+.simple-calendar {
+  .day {
+    height: 180px!important;
+  }
+  .today {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffff88+0,ffff88+51&1+0,0.47+50 */
+    background: -moz-linear-gradient(top, rgba(255,255,136,1) 0%, rgba(255,255,136,0.47) 50%, rgba(255,255,136,0.47) 51%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255,255,136,1) 0%,rgba(255,255,136,0.47) 50%,rgba(255,255,136,0.47) 51%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255,255,136,1) 0%,rgba(255,255,136,0.47) 50%,rgba(255,255,136,0.47) 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#78ffff88',GradientType=0 ); /* IE6-9 */
+  }
+  a.my_event{
+    color: #50AE28;
+    text-shadow: black;
+  }
+}

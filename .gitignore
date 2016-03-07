@@ -16,3 +16,4 @@
 .project
 .idea
 /db/schema.rb
+/vendor/bundle

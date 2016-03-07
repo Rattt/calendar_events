@@ -1,6 +1,8 @@
-li.user_enter_panel
-  - unless signed_in?
+- unless signed_in?
+  li
     = link_to t('action.authorization'), new_session_path
+  li
     = link_to t('action.check_in'), new_user_path
-  - else
+- else
+  li
     = link_to t('action.exit'), session_path(current_user), method: :delete, data: { confirm: I18n.t("notice.are_you_sure") }

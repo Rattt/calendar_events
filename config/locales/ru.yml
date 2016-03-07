@@ -5,26 +5,49 @@ ru:
 
   actions: 'Действия'
   action:
-    control_user: 'Панель управления акаунтом'
-    check_in: 'Регистрация'
     authorization: 'Вход'
     create: 'Создать'
     edit: 'Редактировать'
     exit: 'Выход'
+    delete: 'Удалить'
     enter_new_password: 'Введите новый пароль'
-
-
+    create_event: 'Создать событие'
+    check_in: 'Регистрация'
 
   notice:
     incorrect_password: 'Неправильная комбинация логина или пароля'
     session_completed: 'Сессия завршена'
     are_you_sure: 'Вы уверены?'
+    delete_event: 'Событие уничтоженно'
 
   success:
     created_user: 'Пользователь успешно создан'
     updated_user: 'Пользователь успешно обновлен'
+    created_event: 'Событие успешно создано'
+    updated_event: 'Событие успешно обновлено'
 
   please_log_in: 'Пожалуйста авторизуйтесь'
 
   account: 'Аккаут'
+
+  user:
+    control: 'Панель управления акаунтом'
+
+  event:
+    list_event: 'Лист событий'
+    empty: 'Список событий пуст'
+    last_event: "Событие произошло %{date_start}"
+    calendar: 'Календарь событий'
+    type_event:
+      not_repeat: 'Без повторений'
+      one_repeat: 'Каждый день'
+      week_repeat: 'Каждую неделю'
+      month_repeat: 'Каждый месяц'
+      year_repeat: 'Каждый год'
+
+
+
+  date:
+      formats:
+        default: "%d.%m.%Y"
 

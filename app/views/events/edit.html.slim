@@ -1,0 +1,6 @@
+h1.text-center = t('action.edit')
+= bootstrap_form_for @virtual_event, url: event_path(id: @virtual_event.id), :html=>{:method=>:put} do |f|
+  .row
+    div.col-xs-offset-4.col-xs-4
+      = render 'events/fields', :f => f
+      = f.primary t('action.edit') , class: "btn btn-primary"

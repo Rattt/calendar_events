@@ -1,0 +1,11 @@
+
+- if @date_events.present?
+  = month_calendar events: @date_events do |date, date_events|
+    = l(date)
+    - date_events.each do |date_event|
+      div
+        = get_link_to_action(date_event)
+
+
+
+

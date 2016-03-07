@@ -1,0 +1,8 @@
+= f.hidden_field :user_id, value: current_user.id
+
+= f.text_field :name
+= f.select :type_event, options_for_select(@types_event, f.object.type_event)
+= f.date_field :date_start
+
+
+

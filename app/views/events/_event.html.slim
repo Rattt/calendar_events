@@ -1,0 +1,6 @@
+tr
+  td = event.name
+  td = t("event.type_event."+event.type_event)
+  td  = event.event_coming_soon_date
+  td
+    = render 'events/actions', :event => event

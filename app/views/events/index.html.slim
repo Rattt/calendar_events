@@ -1,0 +1,21 @@
+h1 = t('event.list_event')
+
+
+table.table.table-striped.table-bordered
+  thead
+  tr
+    th = t('activerecord.attributes.event.name')
+    th = t('activerecord.attributes.event.type_event')
+    th = t('activerecord.attributes.date_event.date_start')
+    th = t('actions')
+  tbody
+    - if @events.present?
+      = render @events
+    - else
+      tr
+        td colspan=(3)
+          p = t('event.empty')
+        td
+= link_to t('action.create'), new_event_path, class: 'btn btn-success'
+
+

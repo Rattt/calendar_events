@@ -26,6 +26,12 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def is_my_event?(event)
+    unless event.user_id == current_user.id
+      render :text => "Access denied 403", :status => 403, :layout => false
+    end
+  end
+
   def private_access!
     unless signed_in?
       render :text => "Access denied 403", :status => 403, :layout => false

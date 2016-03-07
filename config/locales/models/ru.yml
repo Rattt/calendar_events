@@ -1,12 +1,33 @@
 ru:
+  helpers:
+    label:
+      virtual_event:
+        name: Название события
+        type_event: Тип события
+        date_start: Наступление события
+
   activerecord:
         models:
           user: Пользователи
+          event: События
+          virtual_event: События
         attributes:
           user:
                full_name: Ф.И.О.
                email: Email
                password: Пароль
                password_confirmation: Повторите пароль
+
+          event:
+               name: Название события
+               type_event: Тип события
+
+          date_event:
+               date_start: Наступление события
+
+
+
+
+
 
 

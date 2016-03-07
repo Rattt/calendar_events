@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     root to: "sessions#new"
     resources :sessions, only: [:new, :create, :destroy]
     resources :users, only: [:new, :create, :edit, :update]
+    resources :events, only: [:new, :create, :edit, :update, :index, :destroy] do
+      get 'calendar', on: :collection
+    end
 
   end
 
