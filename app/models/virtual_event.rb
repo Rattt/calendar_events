@@ -16,8 +16,8 @@ class VirtualEvent
   def update(event)
     if valid?
       event.update(name: name, type_event: type_event)
-      DateEvent.delete_all(["id in (?)", event.date_events.get_ids_future_events])
-      DateEvent.generate_dates_event(event, date_start)
+      EventDate.delete_all(["id in (?)", event.event_dates.get_ids_future_events])
+      EventDate.generate_event_dates(event, date_start)
       true
     else
       false
@@ -27,7 +27,7 @@ class VirtualEvent
   def save
     if valid?
       event = Event.create!(user_id: user_id, name: name, type_event: type_event)
-      DateEvent.generate_dates_event(event, date_start)
+      EventDate.generate_event_dates(event, date_start)
       true
     else
       false

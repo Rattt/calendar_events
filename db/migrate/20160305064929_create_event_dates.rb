@@ -1,12 +1,12 @@
-class CreateDateEvents < ActiveRecord::Migration
+class CreateEventDates < ActiveRecord::Migration
   def self.up
-    create_table :date_events do |t|
+    create_table :event_dates do |t|
       t.integer :event_id, null: false
       t.date :date_start, null: false, index: true
     end
   end
 
   def self.down
-    drop_table :date_events
+    drop_table :event_dates
   end
 end

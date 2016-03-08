@@ -35,11 +35,11 @@ class EventsController < ApplicationController
 
   def edit
     @virtual_event = VirtualEvent.new(id: @event.id, user_id: @event.user_id, name: @event.name ,
-                                      type_event: @event.type_event, date_start: @event.date_events.get_date_start_first_event_occurs)
+                                      type_event: @event.type_event, date_start: @event.event_dates.get_date_start_first_event_occurs)
   end
 
   def show
-    @date_start = @event.date_events.get_date_start_first_event_occurs
+    @date_start = @event.event_dates.get_date_start_first_event_occurs
   end
 
   def index
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
   end
 
   def calendar
-    @date_events = DateEvent.all
+    @event_dates = EventDate.get_dates_point
   end
 
   def destroy

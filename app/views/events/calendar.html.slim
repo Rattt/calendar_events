@@ -1,10 +1,10 @@
 
-- if @date_events.present?
-  = month_calendar events: @date_events do |date, date_events|
+- if @event_dates.present?
+  = month_calendar events: @event_dates do |date, event_dates|
     = l(date)
-    - date_events.each do |date_event|
+    - event_dates.each do |event_date|
       div
-        = get_link_to_action(date_event)
+        = get_link_to_action(event_date)
 
 
 
