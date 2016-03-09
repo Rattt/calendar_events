@@ -1,3 +1,6 @@
+h1 = t('event.calendar')
+p.description_calendar
+  = t("calendar_desription").html_safe
 
 - if @event_dates.present?
   = month_calendar events: @event_dates do |date, event_dates|

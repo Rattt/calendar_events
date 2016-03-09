@@ -1,4 +1,4 @@
-module DateEventHelper
+module EventDateHelper
 
   def get_link_to_action(date_event)
     current_event = date_event.event
@@ -13,6 +13,10 @@ module DateEventHelper
 
     if date_event.event_occurs?
       classes = classes + ' event_occurs'
+    end
+
+    if date_event.date_start < Date.today
+      classes = classes + ' last_date'
     end
 
     link_to(current_event.name, href, class: classes)

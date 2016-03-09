@@ -70,7 +70,6 @@ class EventDate < ActiveRecord::Base
     new_rows_hash = EventDate.get_collection_event_date(date_event)
 
     EventDate.single_mass_insert_sql!(new_rows_hash) if new_rows_hash.present?
-
   end
 
   def self.single_mass_insert_sql!(rows)
