@@ -40,13 +40,9 @@ li.divider {
     border-bottom: 1px solid #ccc;
 }
 
-li.dropdown.lang_manage {
-    ul.dropdown-menu {
-        margin-top: 16px !important;
-    }
-}
-li.dropdown.event_manage {
+li.dropdown {
     ul.dropdown-menu {
         margin-top: 10px !important;
     }
 }
+
