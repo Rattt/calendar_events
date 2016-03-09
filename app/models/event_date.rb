@@ -5,7 +5,7 @@ class EventDate < ActiveRecord::Base
   scope :get_date_last_point, -> {order(date_start: :desc).limit(1).pluck(:date_start).first }
   scope :get_date_start_first_event_occurs, -> { where("DATE(date_start) > ?", Date.today).order(date_start: :asc).limit(1).pluck(:date_start).first }
   scope :get_ids_future_events, -> { where("DATE(date_start) > ?", Date.today).pluck(:id) }
-  scope :get_ids_date_event_old, -> { where("DATE(date_start) < ?", event_date_last).pluck(:id) }
+  scope :get_ids_date_event_old, -> { where("DATE(date_start) < ?", EventDate.event_date_last).pluck(:id) }
 
 
   def self.get_dates_point
@@ -31,35 +31,36 @@ class EventDate < ActiveRecord::Base
 
     last_date_point = record.event.event_dates.get_date_last_point
 
-    if  record.date_start < event_date_future
+    if  record.date_start < EventDate.event_date_future
       array_records << record.attributes.dup
     end
 
     type_event = record.event.type_event
 
-    if type_event == 'not_repeat' && !(last_date_point.present?)
-      return array_records
+    if type_event == 'not_repeat'
+      if last_date_point.present?
+        return nil
+      else
+        return array_records
+      end
     end
 
     if  last_date_point.present? && record.date_start < last_date_point
       return nil
     end
 
-
     template_record = record.attributes.dup
     new_date_start = template_record["date_start"]
     new_date_start = get_new_date_start(new_date_start, type_event)
 
-    if  new_date_start < event_date_future
-      while new_date_start < event_date_future
+    while new_date_start < EventDate.event_date_future
 
-        template_record["date_start"] = new_date_start
-        template_record["id"] = nil
+      template_record["date_start"] = new_date_start
+      template_record["id"] = nil
 
-        array_records << template_record.dup
+      array_records << template_record.dup
 
-        new_date_start = EventDate.get_new_date_start(new_date_start, type_event)
-      end
+      new_date_start = EventDate.get_new_date_start(new_date_start, type_event)
     end
 
     array_records
@@ -111,14 +112,6 @@ class EventDate < ActiveRecord::Base
       when 'year_repeat'
         new_date_start + 1.years
     end
-  end
-
-  def event_date_last
-    Date.today - 3.month
-  end
-
-  def event_date_future
-    Date.today + 3.month
   end
 
   def self.event_date_last
