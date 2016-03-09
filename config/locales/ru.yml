@@ -43,6 +43,7 @@ ru:
     empty: 'Список событий пуст'
     last_event: "Событие произошло %{date_start}"
     calendar: 'Календарь событий'
+    manage: 'Управление Событиями'
     type_event:
       not_repeat: 'Без повторений'
       one_repeat: 'Каждый день'
