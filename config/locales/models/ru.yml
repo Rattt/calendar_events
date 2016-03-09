@@ -10,7 +10,6 @@ ru:
         models:
           user: Пользователи
           event: События
-          virtual_event: События
         attributes:
           user:
                full_name: Ф.И.О.

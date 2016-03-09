@@ -1,0 +1,25 @@
+en:
+  helpers:
+    label:
+      virtual_event:
+        name: Event name
+        type_event: Event type
+        date_start: The onset of events
+
+  activerecord:
+        models:
+          user: Users
+          event: Events
+        attributes:
+          user:
+               full_name: FULL NAME
+               email: Email
+               password: Password
+               password_confirmation: Password confirmation
+
+          event:
+               name: Event name
+               type_event: Event type
+
+          date_event:
+               date_start: The onset of events

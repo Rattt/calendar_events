@@ -1,4 +1,59 @@
 en:
+  test_job_title: 'Test job'
+
+  navigation: 'Navigation'
+
+    actions: 'Actions'
+    action:
+      authorization: 'Sign In'
+      create: 'Create'
+      edit: 'Edit'
+      exit: 'Sign Out'
+      delete: 'Delete'
+      enter_new_password: 'Enter a new password'
+      create_event: 'Create Event'
+      check_in: 'Check in'
+      previous: 'Back'
+      next: 'Next'
+
+    error:
+      uniqueness: 'Recording is not unique'
+
+    notice:
+      incorrect_password: 'Incorrect combination of login and password'
+      session_completed: 'Session finished'
+      are_you_sure: 'Are you sure?'
+      delete_event: 'Event destroyed'
+
+    success:
+      created_user: 'User created successfully'
+      updated_user: 'User updated successfully'
+      created_event: 'Event successfully created'
+      updated_event: 'Event successfully updated'
+
+    please_log_in: 'Please log in'
+
+    account: 'Account'
+
+    user:
+      control: 'Account Control Panel'
+
+    event:
+      list_event: 'List events'
+      empty: 'The event list is empty'
+      last_event: "The event took place %{date_start}"
+      calendar: 'Calendar of events'
+      type_event:
+        not_repeat: 'Without repetitions'
+        one_repeat: 'Everyday'
+        week_repeat: 'Every week'
+        month_repeat: 'Every month'
+        year_repeat: 'Every year'
+
+    calendar_desription: '<span class = "green"> Green </span> color means, events created by the user, <b> bold </b> the release of the first event is put in the queue. <br>
+                          <span class = "gray"> Grey </span> color designated events in the past. <br>
+                          Its events, we can edit other people only view.'
+
   date:
     formats:
       default: "%Y-%m-%d"
